@@ -1,0 +1,65 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+Nomi-Pro
+{% endblock %}
+{% block navbar %}
+{% endblock %}
+
+
+
+{% block content %}
+
+    
+
+    <div class="login-form-bg h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center h-100">
+                <div class="col-xl-6">
+                    <div class="form-input-content">
+                        <div class="card login-form mb-0">
+                            
+
+                            <form method='post'>
+                                {% csrf_token %}
+                            
+                                <div class="row justify-content-center">
+                                    
+                                    <div class="col-xl-6">
+                                        <div class="form-group">
+                                            <label for="username">Nombre de usuario:</label>
+                                            <input class="form-control" type="text" name="username">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center h-100">
+                                    <div class="col-xl-6">
+                                        <div class="form-group">
+                                            <label for="username">Contraseña:</label>
+                                            <input class="form-control" type="password" name="password">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center h-100">
+                                    <div class="col-xl-6">
+                                        <div class="form-group">
+                                            <a href="{% url 'password_reset'%}">Olvidé la Contraseña</a>
+                                            <input class="btn btn-primary" type="submit" value="Ingresar">
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            
+
+                            </form>
+                        </div>
+
+                    </div>
+             </div>
+        </div>
+    </div>
+ 
+
+    
+{% endblock %}

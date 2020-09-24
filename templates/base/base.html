@@ -1,0 +1,117 @@
+{% load static%}  
+<!DOCTYPE html>
+<html class="h-100" dir="ltr" lang="en">
+<head>
+    {% block extrahead %} 
+    {% comment %} Aqui se podrian colocar los links {% endcomment %}
+    {% endblock %}
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap2.css' %}">
+    <title>{% block title %} Nomi-Pro {% endblock %}</title>
+</head>
+
+<body class="h-100" data-container="wide" direction="ltr">
+        <div class="content container">
+        <div class="row">
+            <div class="col-md-10">
+            <br>
+            <br>
+            <br>
+            <br>
+            </div>
+        </div>
+    </div>
+
+    {% block navbar %} 
+    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+      <div class="container">
+        <a href="{% url 'Emp_index' %}" class="navbar-brand">Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Gestión de Empleados<span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="themes">
+                <a class="dropdown-item" href="{% url 'empleado_crear' %}">Registrar nuevo empleado</a>                
+                <a class="dropdown-item" href="{% url 'empleado_listar' %}">Ver empleados</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'cargos_crear' %}">Crear nuevo cargo</a>                
+                <a class="dropdown-item" href="{% url 'cargos_listar' %}">Ver cargos</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'tipovinculacion_crear' %}">Crear nuevo tipo de vinculación</a>               
+                <a class="dropdown-item" href="{% url 'tipovinculacion_listar' %}">Ver tipo vinculaciones</a>
+               
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download">Gestión de tiempos<span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="download">
+                <a class="dropdown-item" href="{% url 'reportehoras_crear' %}">Reportar horas</a>                
+                <a class="dropdown-item" href="{% url 'reportehoras_listar' %}">Ver horas reportadas</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'horasadicionales_crear' %}">Crear tipo hora adicional</a>                
+                <a class="dropdown-item" href="{% url 'horasadicionales_listar' %}">Ver horas adicionales</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'detallehoras_crear' %}">Ingresar detalle horas</a>                                
+                <a class="dropdown-item" href="{% url 'detallehoras_listar' %}">Ver detalle horas </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'parafiscales_crear' %}">Crear tipo parafiscal</a>                
+                <a class="dropdown-item" href="{% url 'parafiscales_listar' %}">Ver parafiscales </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'detalleparafiscal_crear' %}">Crear detalle parafiscales</a>                
+                <a class="dropdown-item" href="{% url 'detalleparafiscal_listar' %}">Ver detalles parafiscales </a>                
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download">Gestión de nómina<span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="download">
+                <a class="dropdown-item" href="{% url 'nomina_crear' %}">Crear nómina</a>                
+                <a class="dropdown-item" href="{% url 'nomina_listar' %}">Ver nóminas creadas</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'periodo_crear' %}">Crear periodo contable</a>                
+                <a class="dropdown-item" href="{% url 'periodo_listar' %}">Ver periodos contables </a>                              
+              </div>
+            </li>
+          </ul>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Opciones<span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="themes">
+                <a class="dropdown-item" href="{% url 'Registrar' %}">Crear usuario</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a>
+                
+               
+              </div>
+            </li>
+                        
+          </ul>
+      </div>
+    </div>
+{% endblock %}
+{% comment %} <div class="page-header">
+            <h1><a href="/">Formulario</a></h1>
+        </div> {% endcomment %}
+
+<div class="content container">
+        <div class="row">
+            <div class="col-md-10">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+
+<script src="{% static 'js/jquery.min.js' %}"></script>  
+<script src="{% static 'js/bootstrap.min.js' %}"></script> 
+
+</body>
+</html>
